@@ -11,7 +11,7 @@ if (Meteor.isClient) {
       var query = Session.get('query');
       filter.sort[Session.get('sortby')] = 1;
 
-      return Contacts.find({ name : new RegExp(query, 'i') }, filter);
+      return Contacts.find({ name : new RegExp(query, 'i'), user_id: Meteor.userId()},  filter);
     }
   });
 
@@ -24,6 +24,7 @@ if (Meteor.isClient) {
         number: event.target.number.value,
         email: event.target.email.value,
         address: event.target.address.value,
+        user_id: Meteor.userId(),
         createdAt: new Date()
       });
 
