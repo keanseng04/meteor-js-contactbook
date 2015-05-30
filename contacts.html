@@ -1,0 +1,32 @@
+<template name="contacts">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row text-right">
+        <div class="col-md-12 text-right">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newContactModal">
+            Add New Contact
+          </button>
+          <button type="button" class="btn btn-danger delete"> Delete </button>
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Number</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each contacts}}
+          {{> contact}}
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</template>
+
