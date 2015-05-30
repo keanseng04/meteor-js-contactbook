@@ -46,7 +46,7 @@ if (Meteor.isClient) {
       $.each(checked, function(index,value) {
         Contacts.remove(value);
       }); 
-    }
+    },
 
     "keyup .searchbox": function(event) {
       var query = event.target.value;
