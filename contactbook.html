@@ -4,11 +4,15 @@
 
 <body>
   {{> navbar }}
-  <div class= "container">
-    <header>
-      <h1>Contacts</h1>
-    </header>
-      {{> contacts }}
-      {{> new_contact }}
-  </div>
+  {{#if currentUser}}
+    <div class= "container">
+      <header>
+        <h1>Contacts</h1>
+      </header>
+        {{> contacts }}
+        {{> new_contact }}
+    </div>
+  {{else}}
+    {{> logged_out}}
+  {{/if}}
 </body>
