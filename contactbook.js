@@ -8,8 +8,10 @@ if (Meteor.isClient) {
   Template.contacts.helpers({
     contacts: function() {
       var filter = {sort: {}};
+      var query = Session.get('query');
       filter.sort[Session.get('sortby')] = 1;
-      return Contacts.find({}, filter);
+
+      return Contacts.find({ name : new RegExp(query, 'i') }, filter);
     }
   });
 
