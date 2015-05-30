@@ -45,6 +45,11 @@ if (Meteor.isClient) {
         Contacts.remove(value);
       }); 
     }
+
+    "keyup .searchbox": function(event) {
+      var query = event.target.value;
+      Session.set('query', query);
+    }
   });
 
   Template.contact.events({
